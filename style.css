@@ -1,0 +1,227 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pixelify Sans', cursive;
+}
+
+:root {
+    --primary-purple: #8b5cf6;
+    --primary-hover: #7c3aed;
+    --background: #0a0a0a;
+    --card-bg: #1a1a1a;
+    --border-color: #2a2a2a;
+    --text-primary: #ffffff;
+    --text-secondary: #a3a3a3;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding-bottom: 70px; /* Space for bottom nav */
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Page Layout */
+.page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Cards */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    margin-bottom: 1rem;
+}
+
+/* Sticky Stats Card */
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--card-bg);
+}
+
+/* Stats Card */
+.stats-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    text-align: center;
+}
+
+.stat-item h3 {
+    color: var(--primary-purple);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--card-bg);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0.5rem;
+    gap: 0.5rem;
+    border-top: 1px solid var(--border-color);
+    z-index: 1000;
+}
+
+.nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    color: var(--text-secondary);
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.nav-btn.active {
+    color: var(--primary-purple);
+    background-color: rgba(139, 92, 246, 0.1);
+}
+
+.nav-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Content Sections */
+.section {
+    padding: 1rem 0;
+}
+
+/* Tasks */
+.task-item {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-info h3 {
+    margin-bottom: 0.5rem;
+}
+
+.task-reward {
+    color: var(--primary-purple);
+    font-size: 0.9rem;
+}
+
+/* Spin Wheel */
+.spin-container {
+    text-align: center;
+    padding: 1rem;
+}
+
+#spin-button {
+    background-color: var(--primary-purple);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    margin: 1rem 0;
+    border: none;
+    cursor: pointer;
+}
+
+/* Leaderboard */
+.leaderboard-table {
+    margin-top: 1rem;
+}
+
+.leaderboard-row {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr;
+    align-items: center;
+}
+
+/* Referral Section */
+.bonus-info {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: rgba(139, 92, 246, 0.1);
+    border-radius: 0.75rem;
+}
+
+.bonus-info h3 {
+    color: var(--primary-purple);
+    margin-bottom: 0.5rem;
+}
+
+.referral-link-container {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.referral-link-container input {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    background-color: var(--border-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+/* Custom Alert */
+.custom-alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.alert-content {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    max-width: 90%;
+    width: 400px;
+}
+
+.loader {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--border-color);
+    border-top: 4px solid var(--primary-purple);
+    border-radius: 50%;
+    margin: 1rem auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coinxilla Airdrop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Registration Page -->
+    <div id="registration-page" class="page">
+        <div class="card registration-card">
+            <h2>Welcome to Coinxilla</h2>
+            <div class="input-group">
+                <label for="telegram-uid">Enter your Telegram User ID</label>
+                <input type="text" id="telegram-uid" placeholder="Your Telegram User ID">
+                <button onclick="register()">Register</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Homepage with Sections -->
+    <div id="homepage" class="page hidden">
+        <!-- Stats Card (Always visible at top) -->
+        <div class="card stats-card sticky-top">
+            <div class="stat-item">
+                <h3>Account UID</h3>
+                <p id="display-uid"></p>
+            </div>
+            <div class="stat-item">
+                <h3>Coinxilla Points</h3>
+                <p id="points-balance">0</p>
+            </div>
+            <div class="stat-item">
+                <h3>Referees</h3>
+                <p id="referee-count">0</p>
+            </div>
+        </div>
+
+        <!-- Content Sections -->
+        <div id="content-sections">
+            <!-- Tasks Section -->
+            <div id="tasks-section" class="section">
+                <h2>Daily Tasks</h2>
+                <div id="tasks-container">
+                    <!-- Tasks will be dynamically added here -->
+                </div>
+            </div>
+
+            <!-- Spin Section -->
+            <div id="spin-section" class="section hidden">
+                <h2>Spin & Win</h2>
+                <div class="spin-container">
+                    <canvas id="wheel-canvas" width="300" height="300"></canvas>
+                    <button id="spin-button" onclick="spinWheel()">SPIN NOW</button>
+                    <div class="spin-info">
+                        <p>Daily spins remaining: <span id="spins-left">3</span></p>
+                        <p>Last win: <span id="last-win">0</span> Coinxilla</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leaderboard Section -->
+            <div id="leaderboard-section" class="section hidden">
+                <h2>Top Earners</h2>
+                <div class="leaderboard-tabs">
+                    <button class="tab-btn active" onclick="switchLeaderboard('points')">Points</button>
+                    <button class="tab-btn" onclick="switchLeaderboard('referrals')">Referrals</button>
+                </div>
+                <div class="leaderboard-content">
+                    <div id="points-leaderboard" class="leaderboard-table"></div>
+                    <div id="referrals-leaderboard" class="leaderboard-table hidden"></div>
+                </div>
+            </div>
+
+            <!-- Referral Section -->
+            <div id="referral-section" class="section hidden">
+                <h2>Invite Friends</h2>
+                <div class="bonus-info">
+                    <h3>Referral Bonus</h3>
+                    <p>🎁 Earn 2000 Coinxilla per referral</p>
+                    <p>⏰ Bonus drops after 1 hour</p>
+                </div>
+                <div class="referral-content">
+                    <div class="referral-link-container">
+                        <input type="text" id="referral-link" readonly>
+                        <button onclick="copyReferralLink()">Copy</button>
+                    </div>
+                    <div class="referral-stats">
+                        <p>Total Referral Earnings: <span id="referral-earnings">0</span> Coinxilla</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button onclick="showSection('tasks')" class="nav-btn active">
+                <span class="nav-icon">📝</span>
+                Tasks
+            </button>
+            <button onclick="showSection('spin')" class="nav-btn">
+                <span class="nav-icon">🎡</span>
+                Spin
+            </button>
+            <button onclick="showSection('leaderboard')" class="nav-btn">
+                <span class="nav-icon">🏆</span>
+                Leaders
+            </button>
+            <button onclick="showSection('referral')" class="nav-btn">
+                <span class="nav-icon">👥</span>
+                Refer
+            </button>
+        </nav>
+    </div>
+
+    <!-- Custom Alert -->
+    <div id="custom-alert" class="custom-alert hidden">
+        <div class="alert-content">
+            <p id="alert-message"></p>
+            <div class="loader hidden"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
